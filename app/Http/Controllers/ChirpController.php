@@ -39,7 +39,9 @@ class ChirpController extends Controller
      */
     public function store(StoreChirpRequest $request)
     {
-        //
+        auth()->user()->chirps()->create($request->all());
+
+        return redirect(route('chirps.index'));
     }
 
     /**
