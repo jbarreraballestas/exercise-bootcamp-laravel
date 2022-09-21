@@ -13,7 +13,7 @@ class UpdateChirpRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return $this->chirp->user()->is(auth()->user());
     }
 
     /**
@@ -24,7 +24,7 @@ class UpdateChirpRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'message' => 'required|string|max:255',
         ];
     }
 }

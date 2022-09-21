@@ -75,7 +75,9 @@ class ChirpController extends Controller
      */
     public function update(UpdateChirpRequest $request, Chirp $chirp)
     {
-        //
+        $chirp->update($request->all());
+
+        return redirect(route('chirps.index'));
     }
 
     /**
